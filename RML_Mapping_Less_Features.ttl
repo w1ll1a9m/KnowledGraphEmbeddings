@@ -1,0 +1,72 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix gn: <http://geonames.org/> .
+@prefix wd: <http://worldbank.org/> .
+@prefix wb: <http://data.worldbank.org/> .
+@prefix ex: <https://example.com/> .
+@base <https://world.openfoodfacts.org/> .
+
+
+<TriplesMapGeonames>
+  a rr:TriplesMap;
+
+  # Define the data source (file location)
+    rml:logicalSource [
+    rml:source "//Users/williamlopez/Documents/Maastricht University/Building and mining knowledge graphs/Project/data2/mapping/MergedDataFranceABCDEv2.csv";
+    rml:referenceFormulation ql:CSV
+  ];
+
+  # Define the subject of the generated statements
+    rr:subjectMap [ rr:template "{url}" ;
+    rr:class dbo:Food ];
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:nutriscore ;
+    rr:objectMap [ rml:reference "nutri-score" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:brands ;
+    rr:objectMap [ rml:reference "brands" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:stores ;
+    rr:objectMap [ rml:reference "stores" ]
+  ] ;
+
+   rr:predicateObjectMap [ 
+    rr:predicate ex:nutrition_grade_fr ;
+    rr:objectMap [ rml:reference "nutrition_grade_fr" ]
+  ] ;
+
+   rr:predicateObjectMap [ 
+    rr:predicate ex:nova_group ;
+    rr:objectMap [ rml:reference "nova_group" ]
+  ] ;
+
+   rr:predicateObjectMap [ 
+    rr:predicate ex:pnns_groups_2 ;
+    rr:objectMap [ rml:reference "pnns_groups_2" ]
+  ] ;
+   rr:predicateObjectMap [ 
+    rr:predicate ex:main_category ;
+    rr:objectMap [ rml:reference "main_category" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:nutrition_score_fr ;
+    rr:objectMap [ rml:reference "nutrition-score-fr_100g"; rr:datatype xsd:integer ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:nutrition_score_uk ;
+    rr:objectMap [ rml:reference "nutrition-score-uk_100g"; rr:datatype xsd:integer ]
+  ] .

@@ -1,0 +1,195 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix gn: <http://geonames.org/> .
+@prefix wd: <http://worldbank.org/> .
+@prefix wb: <http://data.worldbank.org/> .
+@prefix ex: <https://example.com/> .
+@base <https://world.openfoodfacts.org/> .
+
+
+<TriplesMapGeonames>
+  a rr:TriplesMap;
+
+  # Define the data source (file location)
+    rml:logicalSource [
+    rml:source "//Users/williamlopez/Documents/Maastricht University/Building and mining knowledge graphs/Project/data2/mapping/MergedDataFranceABCDE.csv";
+    rml:referenceFormulation ql:CSV
+  ];
+
+  # Define the subject of the generated statements
+    rr:subjectMap [ rr:template "{url}" ;
+    rr:class dbo:Food ];
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:code ;
+    rr:objectMap [ rml:reference "code" ]
+  ] ;
+  # Map the product name to rdfs:label
+    rr:predicateObjectMap [ 
+    rr:predicate rdfs:label ;
+    rr:objectMap [ rml:reference "product_name" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:nutriscore ;
+    rr:objectMap [ rml:reference "nutri-score" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:generic_name ;
+    rr:objectMap [ rml:reference "generic_name" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:quantity ;
+    rr:objectMap [ rml:reference "quantity" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:packaging ;
+    rr:objectMap [ rml:reference "packaging" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:packaging_tags ;
+    rr:objectMap [ rml:reference "packaging_tags" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:brands ;
+    rr:objectMap [ rml:reference "brands" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:categories ;
+    rr:objectMap [ rml:reference "categories" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:origins ;
+    rr:objectMap [ rml:reference "origins" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:manufacturing_places ;
+    rr:objectMap [ rml:reference "manufacturing_places" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:purchase_places ;
+    rr:objectMap [ rml:reference "purchase_places" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:stores ;
+    rr:objectMap [ rml:reference "stores" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:allergens ;
+    rr:objectMap [ rml:reference "allergens" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:serving_size ;
+    rr:objectMap [ rml:reference "serving_size" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:serving_quantity ;
+    rr:objectMap [ rml:reference "serving_quantity"; rr:datatype xsd:float ]
+  ] ;
+
+   rr:predicateObjectMap [ 
+    rr:predicate ex:additives_n ;
+    rr:objectMap [ rml:reference "additives_n"; rr:datatype xsd:integer ]
+  ] ;
+
+   rr:predicateObjectMap [ 
+    rr:predicate ex:ingredients_from_palm_oil_n ;
+    rr:objectMap [ rml:reference "ingredients_from_palm_oil_n"; rr:datatype xsd:integer ]
+  ] ;
+
+   rr:predicateObjectMap [ 
+    rr:predicate ex:nutrition_grade_fr ;
+    rr:objectMap [ rml:reference "nutrition_grade_fr" ]
+  ] ;
+
+   rr:predicateObjectMap [ 
+    rr:predicate ex:nova_group ;
+    rr:objectMap [ rml:reference "nova_group" ]
+  ] ;
+   rr:predicateObjectMap [ 
+    rr:predicate ex:pnns_groups_1 ;
+    rr:objectMap [ rml:reference "pnns_groups_1" ]
+  ] ;
+   rr:predicateObjectMap [ 
+    rr:predicate ex:pnns_groups_2 ;
+    rr:objectMap [ rml:reference "pnns_groups_2" ]
+  ] ;
+   rr:predicateObjectMap [ 
+    rr:predicate ex:main_category ;
+    rr:objectMap [ rml:reference "main_category" ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:energy_100g ;
+    rr:objectMap [ rml:reference "energy_100g"; rr:datatype xsd:float ]
+  ] ;
+    
+    rr:predicateObjectMap [ 
+    rr:predicate ex:fat_100g ;
+    rr:objectMap [ rml:reference "fat_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:saturated_fat_100g ;
+    rr:objectMap [ rml:reference "saturated-fat_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:carbohydrates_100g ;
+    rr:objectMap [ rml:reference "carbohydrates_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:sugars_100g ;
+    rr:objectMap [ rml:reference "sugars_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:fiber_100g ;
+    rr:objectMap [ rml:reference "fiber_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:proteins_100g ;
+    rr:objectMap [ rml:reference "proteins_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:salt_100g ;
+    rr:objectMap [ rml:reference "salt_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:sodium_100g ;
+    rr:objectMap [ rml:reference "sodium_100g"; rr:datatype xsd:float ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:nutrition_score_fr ;
+    rr:objectMap [ rml:reference "nutrition-score-fr_100g"; rr:datatype xsd:integer ]
+  ] ;
+
+    rr:predicateObjectMap [ 
+    rr:predicate ex:nutrition_score_uk ;
+    rr:objectMap [ rml:reference "nutrition-score-uk_100g"; rr:datatype xsd:integer ]
+  ] .
